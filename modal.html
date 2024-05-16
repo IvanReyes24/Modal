@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modal</title>
+	<script src="https://kit.fontawesome.com/46902bd23b.js" crossorigin="anonymous"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: "Poetsen One", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		main{
+			background: url("./src/img/modal-bg.jpg");
+			background-size: cover;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.modal-card{
+			background-color: aliceblue;
+			width: 450px;
+			height: 300px;
+			text-align: center;
+			display: grid;
+			align-items: center;
+			position: relative;
+
+		}
+
+		.modal-btn{
+			padding: 10px 25px;
+			margin-top: 20px;
+			border-radius: 15px;
+			outline: none;
+			background-color: navy;
+			color: aliceblue;
+		}
+
+		.modal-btn:hover{
+			background-color: aliceblue;
+			color: navy;
+			border: 3px solid navy;
+		}
+
+		.modal{
+			position: absolute;
+			height: 250px;
+			width:  450px;
+			border: 3px solid navy;
+			background-color: whitesmoke;
+			display: none;
+			transition: all 1s ease-in;
+			animation: modalAnimation 0.5s ease-in;
+		}
+
+		@keyframes modalAnimation{
+			0%{
+				transform: translateY(-1000px);
+			}
+			100%{
+				transform: translateY(0);
+			}
+		}
+
+		.modal .close-btn{
+			text-align: right;
+			font-size: 2rem;
+			margin: 10px;
+			padding-right: 5px;
+		}
+
+		.modal .close-btn i:hover{
+			color: red;
+			font-size: 2.5rem;
+			transition: all 0.2s ease-in;
+		}
+
+		.modal-content{
+			margin: 10px;
+			padding: 5px;
+			height: 150px;
+		}
+
+		.show{
+			display: block;
+		}
+
+
+	</style>
+</head>
+<body>
+	<main>
+		<div class="modal-card">
+			<div>
+				<h1>Click the button for Modal</h1>
+				<button type="button" class="modal-btn" onclick="showModal()">modal</button>
+			</div>
+
+			<div class="modal">
+				<div class="close-btn">
+					<i class="fa-solid fa-xmark close" onclick="closeModal()"></i>
+				</div>
+
+				<div class="modal-content">
+					<h1>
+							Content Here
+					</h1>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+	<script>
+		const modal = document.querySelector(".modal");
+	
+		function showModal(){
+				modal.classList.add("show");
+				const closeModal = document.querySelector(".close")
+		}
+
+		function closeModal(){
+				modal.classList.remove("show");
+		}
+	</script>
+</body>
+</html>
